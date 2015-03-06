@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dialog (Fixed) | Foundation 5</title>
+
+  <link rel="stylesheet" href="/src/foundation/css/normalize.css">
+  <link rel="stylesheet" href="/src/foundation/css/foundation.css">
+
+  <script src="/src/foundation/js/vendor/modernizr.js"></script>
+
+  <style type="text/css">
+    /* Added to help color contrast */
+    .reveal-modal .close-reveal-modal {
+      color: #fff;
+    }
+  </style>
+
+</head>
+<body>
+
+   <!-- wrapper added to help hide document content from screen readers when dialog is visible -->
+  <div id="wrapper" aria-hidden="false">
+    <h1>Foundation 5 Reveal Modal (Dialog) (Fixed)</h1>
+
+    <ol>
+      <li><i>Source: <a href="http://foundation.zurb.com/docs/css.html">http://foundation.zurb.com/docs/css.html</a></i></li>
+      <li><i>Source: <a href="http://foundation.zurb.com/docs/components/reveal.html">http://foundation.zurb.com/docs/components/reveal.html</a></i></li>
+    </ol>
+
+    <a href="#" class="trigger" data-reveal-id="myModal">Click Me For A Modal</a>
+  </div>
+
+  <!-- Added role="dialog", aria-hidden state, aria-labelledby pointing to the dialog title, and tabindex="0" for focus -->
+  <div id="myModal" class="reveal-modal" data-reveal role="dialog" aria-labelledby="dialog-title" aria-hidden="true" tabindex="0">
+    <!-- Added id so that title can be referenced via aria-labelledby above -->
+    <h2 id="dialog-title">Awesome. I have it.</h2>
+    <!-- Changed from anchor to button for better semantics. Wrapped the 'X' in aria-hidden so that it was not read out loud. Added some visually hidden but screen-reader available instructions -->
+    <button class="button tiny close-reveal-modal"><span aria-hidden="true">&#215;</span><span class="visible-for-xxlarge-up">Close Dialog</span></button>
+    <p class="lead">Your couch.  It is mine.</p>
+    <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+    <!-- Just an element for focus -->
+    <label>Input Label (for focus)
+      <input type="text" />
+    </label>
+    <!-- Another element for focus -->
+    <button class="button secondary">Secondary Button</button>
+  </div>
+
+  <script src="/src/foundation/js/vendor/jquery.js"></script>
+  <script src="/src/foundation/js/foundation.min.js"></script>
+  <script>
+
+    var 
+      // Get all focusabled elements inside the modal
+      focusable = $('#myModal').find('a[href], area[href], input:not([disabled]),' +
+        ' select:not([disabled]), textarea:not([disabled]),' +
+        ' button:not([disabled]), iframe, object, embed, *[tabindex],' +
+        ' *[contenteditable]'),
+      // reference to first focusable element
+      first = focusable[0],
+      // reference to last focusable element
+      last = focusable[focusable.length - 1],
+      // cache the dialog trigger
+      dialogTrigger;
+
+    $(document).foundation();
+
+    // Event to capture the triggering element. Using open because opened event was too late. 
+    $(document).on('open.fndtn.reveal', '[data-reveal]', function (e) {
+
+      dialogTrigger = document.activeElement;
+
+    });
+
+    $(document).on('opened.fndtn.reveal', '[data-reveal]', function (e) {
+
+      // Update aria-hidden state on modal
+      $(this).attr('aria-hidden', false);
+      // Hide the body content from screen readers
+      $('#wrapper').attr('aria-hidden', true);
+      // Focus the first actionable item
+      $('.close-reveal-modal').trigger('focus');
+
+    });
+
+    $(document).on('closed.fndtn.reveal', '[data-reveal]', function () {
+
+      // Update aria-hidden state on modal
+      $(this).attr('aria-hidden', true);
+      // show body content account
+      $('#wrapper').attr('aria-hidden', false);
+
+      dialogTrigger.focus();
+    });
+
+
+    // Cycling focus inside modal
+    $('#myModal').keydown(function (e) {
+
+      var target = e.target;
+
+      // If tab was pressed
+      if (e.which === 9) {
+
+        // If item was first and shift key used, cycle to bottom
+        // If item was last and shify key was NOT used, cycle to top
+        if (target === first && e.shiftKey) {
+          e.preventDefault();
+          last.focus();
+        } else if (target === last && !e.shiftKey) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+    
+
+
+  </script>
+</body>
+</html>

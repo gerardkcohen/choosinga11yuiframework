@@ -1,0 +1,35 @@
+.inputdemoErrors .inputErrorsApp {
+  min-height: 48px; }
+
+/** ----------------------------------------
+  CSS Fixes below
+*/
+
+/* Remove border from fieldset */
+.u-removeBorder {
+  border: none;
+}
+
+/* Used to visually hide the legend, make keep available for screen readers */
+.u-hiddenVisually {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Increase color contrast */
+md-input-container.md-default-theme.md-input-invalid ng-message, 
+md-input-container.md-default-theme.md-input-invalid data-ng-message, 
+md-input-container.md-default-theme.md-input-invalid x-ng-message, 
+md-input-container.md-default-theme.md-input-invalid [ng-message], 
+md-input-container.md-default-theme.md-input-invalid [data-ng-message], 
+md-input-container.md-default-theme.md-input-invalid [x-ng-message], 
+md-input-container.md-default-theme.md-input-invalid .md-char-counter,
+
+md-input-container.md-default-theme.md-input-invalid label {
+	color: #da3b2f;
+}

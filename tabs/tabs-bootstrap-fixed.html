@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabs (Fixed) | Bootstrap</title>
+
+    <link href="/src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/src/bootstrap/css/bootstrap-accessibility.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <h1>Bootstrap Tabs (Fixed)</h1>
+    
+    <ol>
+      <li><i>Source: <a href="http://getbootstrap.com/getting-started/#template">http://getbootstrap.com/getting-started/#template</a></i></li>
+      <li><i>Source: <a href="http://getbootstrap.com/javascript/#tabs">http://getbootstrap.com/javascript/#tabs</a></i></li>
+      <li><i>Source: <a href="http://paypal.github.io/bootstrap-accessibility-plugin/">http://paypal.github.io/bootstrap-accessibility-plugin/</a></i></li>
+    </ol>
+
+    <div role="tabpanel">
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home"><h2>Home</h2></div>
+        <div role="tabpanel" class="tab-pane" id="profile"><h2>Profile</h2></div>
+        <div role="tabpanel" class="tab-pane" id="messages"><h2>Messages</h2></div>
+        <div role="tabpanel" class="tab-pane" id="settings"><h2>Settings</h2></div>
+      </div>
+
+    </div>
+
+    <script src="/src/bootstrap/js/jquery.min.js"></script>
+    <script src="/src/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Just add the Paypal Bootstrap Accessibility Plugin -->
+    <!-- http://paypal.github.io/bootstrap-accessibility-plugin/ -->
+    <script src="/src/bootstrap/js/bootstrap-accessibility.min.js"></script>
+  </body>
+</html>
