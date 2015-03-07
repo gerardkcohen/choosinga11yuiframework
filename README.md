@@ -7,15 +7,14 @@ Using some basic checks, we review Angular, Bootstrap, Foundation, and jQuery Mo
 
 Slideshare available at [http://www.slideshare.net/gerardkcohen/choosing-and-accessible-ui-framework](http://www.slideshare.net/gerardkcohen/choosing-and-accessible-ui-framework)
 
+Thanks to [Paul Schantz](https://twitter.com/paulschantz) for providing detailed notes: [http://paulschantz.com/2015/03/06/choosing-an-accessible-ui-framework/](http://paulschantz.com/2015/03/06/choosing-an-accessible-ui-framework/)
+
 
 ## Credits
 
-**Gerard K. Cohen**
-
-gerardkcohen@gmail.com
-
+**Gerard K. Cohen**  
+gerardkcohen@gmail.com  
 [@gerardkcohen](http://www.twitter.com/gerardkcohen)
 
-**Kevin Kalahiki**
-
+**Kevin Kalahiki**  
 kkalahiki@gmail.com
