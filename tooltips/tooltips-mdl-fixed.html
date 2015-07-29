@@ -1,0 +1,278 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tooltips (Fixed) | Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../src/mdl/css/material.min.css">
+    <link rel="stylesheet" href="assets/css/tooltips-mdl.css">
+
+    <style>
+      .u-textStrikethrough {
+        text-decoration: line-through;
+      }
+
+       .mdl-tooltip-a11y {
+        -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: top center;
+            -ms-transform-origin: top center;
+                transform-origin: top center;
+        will-change: transform;
+        z-index: 999;
+        background: rgba(97,97,97, 0.9);
+        border-radius: 2px;
+        color: rgb(255,255,255);
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 14px;
+        max-width: 170px;
+        position: fixed;
+        top: -500px;
+        left: -500px;
+        padding: 8px;
+        text-align: center; }
+
+      .mdl-tooltip-a11y.is-active {
+        -webkit-animation: pulse 200ms cubic-bezier(0, 0, 0.2, 1) forwards;
+                animation: pulse 200ms cubic-bezier(0, 0, 0.2, 1) forwards; }
+
+      .mdl-tooltip--large {
+        line-height: 14px;
+        font-size: 14px;
+        padding: 16px; }
+
+      @-webkit-keyframes pulse {
+        0% {
+          -webkit-transform: scale(0);
+                  transform: scale(0);
+          opacity: 0; }
+        50% {
+          -webkit-transform: scale(0.99);
+                  transform: scale(0.99); }
+        100% {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+          opacity: 1;
+          visibility: visible; } }
+
+      @keyframes pulse {
+        0% {
+          -webkit-transform: scale(0);
+                  transform: scale(0);
+          opacity: 0; }
+        50% {
+          -webkit-transform: scale(0.99);
+                  transform: scale(0.99); }
+        100% {
+          -webkit-transform: scale(1);
+                  transform: scale(1);
+          opacity: 1;
+          visibility: visible; } }     
+    </style>
+
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Material Design Lite</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search" />
+              <label class="mdl-textfield__label" for="search">Enter your query...</label>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="demo-ribbon"></div>
+      <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <h3>Tooltips (Fixed)</h3>
+            <ol>
+              <li><i>Source: <a href="http://www.getmdl.io/templates/article/index.html">http://www.getmdl.io/templates/article/index.html</a></i></li>
+              <li><i>Source: <a href="http://www.getmdl.io/components/index.html#tooltips-section">http://www.getmdl.io/components/index.html#tooltips-section</a></i></li>
+            </ol>
+           <p>Useful information <span class="u-textStrikethrough">on hover</span> for all users.</p>
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--2-col">
+                <!-- Simple Tooltip -->
+                <div id="tt1" class="icon material-icons" aria-labelledby="tt1-tip">add</div>
+                <div id="tt1-tip" class="mdl-tooltip-a11y" for="tt1" role="tooltip">Follow</div>
+              </div>
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--2-col">
+                <!-- Large Tooltip -->
+                <div id="tt2" class="icon material-icons" aria-labelledby="tt2-tip">print</div>
+                <div id="tt2-tip" class="mdl-tooltip-a11y mdl-tooltip--large" for="tt2" role="tooltip">Print</div>
+              </div>
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--2-col">
+                <!-- Rich Tooltip -->
+                <div id="tt3" class="icon material-icons" aria-labelledby="tt3-tip">cloud_upload</div>
+                <div id="tt3-tip" class="mdl-tooltip-a11y" for="tt3" role="tooltip">Upload <strong>file.zip</strong></div>
+              </div>
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--2-col">
+                <!-- Multiline Tooltip -->
+                <span>
+                <div id="tt4" class="icon material-icons" aria-labelledby="tt4-tip">share</div>
+                <div id="tt4-tip" class="mdl-tooltip-a11y" for="tt4" role="tooltip">Share your content<br>via social media</div>
+                </span>
+              </div>
+            </div>
+
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--2-col">Simple</div>
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--2-col">Large</div>
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--2-col">Rich</div>
+              <div class="mdl-cell mdl-cell--1-col"></div>
+              <div class="mdl-cell mdl-cell--2-col">Multiple Lines</div>
+            </div>            
+
+          </div>
+        </div>
+        <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <ul class="mdl-mini-footer--link-list">
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Privacy and Terms</a></li>
+              <li><a href="#">User Agreement</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="../src/mdl/js/material.min.js"></script>
+
+    <script>
+        
+        function AccessibleMaterialTooltip (element) {
+          'use strict';
+
+          this.element_ = element;
+          this.init();
+        }
+
+        AccessibleMaterialTooltip.prototype = Object.create(MaterialTooltip.prototype);
+        AccessibleMaterialTooltip.prototype.constructor = AccessibleMaterialTooltip;
+
+        AccessibleMaterialTooltip.prototype.handleEsc_ = function (e) {
+          if (e.keyCode === 27) {
+            this.boundMouseLeaveHandler.apply(this, arguments);
+          }
+        };
+
+        /**
+         * Handle mouseenter for tooltip.
+         * @param {Event} event The event that fired.
+         * @private
+         */
+        MaterialTooltip.prototype.handleMouseEnter_ = function(event) {
+          'use strict';
+
+          event.stopPropagation();
+          var props = event.target.getBoundingClientRect();
+          var left = props.left + (props.width / 2);
+          var marginLeft = -1 * (this.element_.offsetWidth / 2);
+
+          if (left + marginLeft < 0) {
+            this.element_.style.left = 0;
+            this.element_.style.marginLeft = 0;
+          } else {
+            this.element_.style.left = left + 'px';
+            this.element_.style.marginLeft = marginLeft + 'px';
+          }
+
+          this.element_.style.top = props.top + props.height + 10 + 'px';
+          this.element_.classList.add(this.CssClasses_.IS_ACTIVE);
+          window.addEventListener('scroll', this.boundMouseLeaveHandler, false);
+          window.addEventListener('touchmove', this.boundMouseLeaveHandler, false);
+        };
+
+        /**
+         * Handle mouseleave for tooltip.
+         * @param {Event} event The event that fired.
+         * @private
+         */
+        MaterialTooltip.prototype.handleMouseLeave_ = function(event) {
+          'use strict';
+
+          event.stopPropagation();
+          this.element_.classList.remove(this.CssClasses_.IS_ACTIVE);
+          window.removeEventListener('scroll', this.boundMouseLeaveHandler);
+          window.removeEventListener('touchmove', this.boundMouseLeaveHandler, false);
+        };        
+
+        AccessibleMaterialTooltip.prototype.init = function () {
+          MaterialTooltip.prototype.init.call(this);
+
+          if (this.forElement_) {
+
+            this.boundEscHandler = this.handleEsc_.bind(this);
+            this.forElement_.addEventListener('focus', this.boundMouseEnterHandler, false);
+            this.forElement_.addEventListener('keydown', this.boundEscHandler, false);
+          }
+        };
+
+        componentHandler.register({
+            constructor: AccessibleMaterialTooltip,
+            classAsString: 'AccessibleMaterialTooltip',
+            cssClass: 'mdl-tooltip-a11y'
+        });
+    </script>
+  </body>
+</html>

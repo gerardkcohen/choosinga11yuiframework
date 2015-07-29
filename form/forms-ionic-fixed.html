@@ -1,0 +1,196 @@
+<html lang="en" ng-app="ionicApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <title>Forms (Fixed) | Ionic</title>
+
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+
+    <style type="text/css">
+
+      /* Visual indication of error state, with proper color contrast */
+      .css-form input.ng-invalid.ng-touched:not(:focus) {
+        box-shadow: 0 0 5px rgba(223, 0, 0, 1);
+        border: 1px solid rgba(223, 0, 0, 1);
+      }
+
+      /* -------------- */
+
+      /* Focus indication: blur state */
+      input[type=text] {
+        border: 1px solid #fff;
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none;
+        padding-left: 5px;
+      }
+       
+      /* Focus indication */
+      *:focus {
+        box-shadow: 0 0 5px rgba(81, 203, 238, 1) !important;
+        border: 1px solid rgba(81, 203, 238, 1) !important;
+      }
+
+      /* -------------- */
+
+      /* Reset fieldset/ legend styles */
+
+      fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      legend {
+        border: none;
+        line-height: normal;
+      }
+
+      /* -------------- */
+
+      /* Fix color contrast on default browser placeholder */
+      input::-webkit-input-placeholder {
+         color: #707070;
+      }
+
+      input:-moz-placeholder {
+         color: #707070;  
+      }
+
+      input::-moz-placeholder {
+         color: #707070;
+      }
+
+      input:-ms-input-placeholder {
+         color: #707070;
+      }     
+
+      /* -------------- */ 
+
+      /* Hide from sighted users, but visible for screen readers */
+      .u-hiddenVisually {
+        position: absolute !important;
+        overflow: hidden !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        border: 0 !important;
+        clip: rect(1px, 1px, 1px, 1px) !important;
+      }      
+    </style>
+
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <script src="//code.angularjs.org/1.3.13/angular-aria.js"></script> <!-- Add ngAria module -->
+
+    <script src="assets/js/forms-ionic-fixed.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+
+    <ion-nav-view></ion-nav-view>
+
+    <script id="templates/event-menu.html" type="text/ng-template">
+      <ion-side-menus enable-menu-with-back-views="false">
+
+        <ion-side-menu-content>
+          <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                <span class="u-hiddenVisually">Menu</span>
+              </button>
+            </ion-nav-buttons>
+          </ion-nav-bar>
+
+          <ion-nav-view name="menuContent"></ion-nav-view>
+        </ion-side-menu-content> 
+
+        <ion-side-menu side="left">
+          <ion-header-bar class="bar-assertive">
+            <h1 class="title">Left Menu</h1>
+          </ion-header-bar>
+          <ion-content>
+            <ul class="list">
+              <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
+              <a href="#/event/check-in" class="item" menu-close>Check-in</a>
+              <a href="#/event/attendees" class="item" menu-close>Attendees</a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+
+      </ion-side-menus>
+    </script>
+
+    <script id="templates/home.html" type="text/ng-template">
+      <ion-view view-title="Welcome">
+        <ion-content class="padding">
+          <p>Swipe to the right to reveal the left menu.</p>
+          <p>(On desktop click and drag from left to right)</p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/check-in.html" type="text/ng-template">
+      <ion-view view-title="Event Check-in (Fixed)">
+        <ion-content>
+          <form class="list css-form" ng-show="showForm" novalidate>
+            <fieldset>
+              <legend class="item item-divider">
+                Attendee Info
+              </legend>
+              <label class="item item-input">
+                <span class="u-hiddenVisually">First Name</span>
+                <input type="text" placeholder="First Name" ng-model="attendee.firstname" required>
+              </label>
+              <label class="item item-input">
+                <span class="u-hiddenVisually">Last Name</span>
+                <input type="text" placeholder="Last Name" ng-model="attendee.lastname" required>
+              </label>
+            </fieldset>
+            <div class="padding">
+              <button class="button button-block" ng-click="submit()">Checkin</button>
+            </div>
+            <ol>
+              <li><i>Source: <a href="http://codepen.io/ionic/pen/QwamEW">http://codepen.io/ionic/pen/QwamEW</a></i></li>
+              <li><i>Source: <a href="https://docs.angularjs.org/guide/forms">https://docs.angularjs.org/guide/forms</a></i></li>
+            </ol>
+
+
+          </form>
+
+          <div ng-hide="showForm">
+            <pre ng-bind="attendee | json"></pre> 
+            <a href="#/event/attendees">View attendees</a>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="templates/attendees.html" type="text/ng-template">
+      <ion-view view-title="Event Attendees">
+        <ion-content>
+          <div class="list">
+            <ion-toggle ng-repeat="attendee in attendees | orderBy:'firstname' | orderBy:'lastname'"
+                        ng-model="attendee.arrived"
+                        ng-change="arrivedChange(attendee)">
+              {{ attendee.firstname }}
+              {{ attendee.lastname }}
+            </ion-toggle>
+            <div class="item item-divider">
+              Activity
+            </div>
+            <div class="item" ng-repeat="msg in activity">
+              {{ msg }}
+            </div>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+  </body>
+</html>
