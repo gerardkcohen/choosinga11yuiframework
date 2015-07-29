@@ -2,12 +2,15 @@
 
 Starting a new project and selecting from the latest UI frameworks is a challenging experience. How do you know the one you choose is accessible? 
 
-Using some basic checks, we review Angular, Bootstrap, Foundation, and jQuery Mobile for some common interactions and patterns including: Documentation, Forms, Tabs, and Dialogs.
+Using some basic checks, we review Angular, Bootstrap, Ionic, Foundation, jQuery Mobile, and Material Design Lite for some common interactions and patterns including: Forms, Tabs, and Dialogs.
 
 
 Slideshare available at [http://www.slideshare.net/gerardkcohen/choosing-and-accessible-ui-framework](http://www.slideshare.net/gerardkcohen/choosing-and-accessible-ui-framework)
 
-Thanks to [Paul Schantz](https://twitter.com/paulschantz) for providing detailed notes: [http://paulschantz.com/2015/03/06/choosing-an-accessible-ui-framework/](http://paulschantz.com/2015/03/06/choosing-an-accessible-ui-framework/)
+Thanks to [Paul Schantz](https://twitter.com/paulschantz) for providing detailed notes from CSUN 2015:  [http://paulschantz.com/2015/03/06/choosing-an-accessible-ui-framework/](http://paulschantz.com/2015/03/06/choosing-an-accessible-ui-framework/)
+
+## History
+07/29/2015 - Add examples from Ionic and Material Design Lite, from ForwardJS
 
 
 ## Credits
