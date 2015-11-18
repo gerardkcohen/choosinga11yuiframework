@@ -9,6 +9,15 @@
     <!-- Bootstrap -->
     <link href="/src/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <style type="text/css">
+      body {
+        margin: 2rem;  
+      }
+
+      [role="tabpanel"] {
+        margin-bottom: 2rem;
+      }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,11 +27,6 @@
   </head>
   <body>
     <h1>Bootstrap Tabs</h1>
-
-    <ol>
-      <li><i>Source: <a href="http://getbootstrap.com/getting-started/#template">http://getbootstrap.com/getting-started/#template</a></i></li>
-      <li><i>Source: <a href="http://getbootstrap.com/javascript/#tabs">http://getbootstrap.com/javascript/#tabs</a></i></li>
-    </ol>
 
     <div role="tabpanel">
 
@@ -36,13 +40,29 @@
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home"><h2>Home</h2></div>
-        <div role="tabpanel" class="tab-pane" id="profile"><h2>Profile</h2></div>
-        <div role="tabpanel" class="tab-pane" id="messages"><h2>Messages</h2></div>
-        <div role="tabpanel" class="tab-pane" id="settings"><h2>Settings</h2></div>
+        <div role="tabpanel" class="tab-pane active" id="home"><p>This is the <b>Home</b> tab</p></div>
+        <div role="tabpanel" class="tab-pane" id="profile"><p>This is the <b>Profile</b> tab</p></div>
+        <div role="tabpanel" class="tab-pane" id="messages"><p>This is the <b>Messages</b> tab</p></div>
+        <div role="tabpanel" class="tab-pane" id="settings"><p>This is the <b>Settings</b> tab</p></div>
       </div>
 
     </div>
+
+    <hr />
+    <h2>Source</h2>
+    <ol>
+      <li>jQuery v1.11.3</li>
+      <li>Bootstrap v3.3.5</li>
+      <li><i><a href="http://getbootstrap.com/getting-started/#template">http://getbootstrap.com/getting-started/#template</a></i></li>
+      <li><i><a href="http://getbootstrap.com/javascript/#tabs">http://getbootstrap.com/javascript/#tabs</a></i></li>
+    </ol>
+
+    <h2>Notes</h2>
+    <ol>
+      <li>Focus indication and color contrast is good!</li>
+      <li>ARIA is ok, but missing important states</li>
+      <li>Missing keyboard nav</li>
+    </ol>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/src/bootstrap/js/jquery.min.js"></script>

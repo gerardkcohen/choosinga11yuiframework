@@ -3,11 +3,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-    <title>Forms | Ionic</title>
+    <title>Side Menus</title>
 
-    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-
+    <link href="/src/ionic/css/ionic.min.css" rel="stylesheet">
     <style type="text/css">
+      
+      body {
+        cursor: url('/src/ionic/css/finger.png'), auto;
+      }
+
+      /**
+       * Validation code taken from https://docs.angularjs.org/guide/forms
+       */
       .css-form input.ng-invalid.ng-touched {
         background-color: #FA787E;
       }
@@ -15,11 +22,10 @@
       .css-form input.ng-valid.ng-touched {
         background-color: #78FA89;
       }
+
     </style>
 
-  
-    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
-
+    <script src="/src/ionic/js/ionic.bundle.min.js"></script>
     <script src="assets/js/forms-ionic.js"></script>
   </head>
 
@@ -72,7 +78,7 @@
     <script id="templates/check-in.html" type="text/ng-template">
       <ion-view view-title="Event Check-in">
         <ion-content>
-          <form class="list css-form" ng-show="showForm" novalidate>
+          <form class="list css-form" ng-show="showForm">
             <div class="item item-divider">
               Attendee Info
             </div>
@@ -85,12 +91,24 @@
             <div class="padding">
               <button class="button button-block" ng-click="submit()">Checkin</button>
             </div>
-            <ol>
-              <li><i>Source: <a href="http://codepen.io/ionic/pen/QwamEW">http://codepen.io/ionic/pen/QwamEW</a></i></li>
-              <li><i>Source: <a href="https://docs.angularjs.org/guide/forms">https://docs.angularjs.org/guide/forms</a></i></li>
-            </ol>
 
+            <div class="padding">
+              <hr />
+              <h2>Source</h2>
+              <ol>
+                <li>Ionic v1.1.0-nightly-1583</li>
+                <li><i><a href="http://codepen.io/ionic/pen/QwamEW">http://codepen.io/ionic/pen/QwamEW</a></i></li>
+                <li><i><a href="https://docs.angularjs.org/guide/forms">https://docs.angularjs.org/guide/forms</a></i></li>
+              </ol>
 
+              <h2>Notes</h2>
+              <ol>
+                <li>Placeholder usability issues (disappearing text, color contrast, browser support)</li>
+                <li>No focus indication</li>
+                <li>Error Validation (color only, color contrast, no status to AT)</li>
+                <li>Inputs not labelled/ grouped</li>
+              </ol>
+            </div>
           </form>
 
           <div ng-hide="showForm">

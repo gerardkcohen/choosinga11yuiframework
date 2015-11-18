@@ -10,6 +10,13 @@
   <link rel="stylesheet" href="/src/foundation/css/normalize.css">
   <link rel="stylesheet" href="/src/foundation/css/foundation.css">
 
+  <style type="text/css">
+
+  body {
+    margin: 2rem;
+  }
+
+  </style>
   <script src="/src/foundation/js/vendor/modernizr.js"></script>
 
   <style type="text/css">
@@ -26,29 +33,48 @@
   <div id="wrapper" aria-hidden="false">
     <h1>Foundation 5 Reveal Modal (Dialog) (Fixed)</h1>
 
-    <ol>
-      <li><i>Source: <a href="http://foundation.zurb.com/docs/css.html">http://foundation.zurb.com/docs/css.html</a></i></li>
-      <li><i>Source: <a href="http://foundation.zurb.com/docs/components/reveal.html">http://foundation.zurb.com/docs/components/reveal.html</a></i></li>
-    </ol>
-
-    <a href="#" class="trigger" data-reveal-id="myModal">Click Me For A Modal</a>
+    <button class="trigger" data-reveal-id="myModal">Click Me For A Modal</button>
   </div>
 
-  <!-- Added role="dialog", aria-hidden state, aria-labelledby pointing to the dialog title, and tabindex="0" for focus -->
-  <div id="myModal" class="reveal-modal" data-reveal role="dialog" aria-labelledby="dialog-title" aria-hidden="true" tabindex="0">
-    <!-- Added id so that title can be referenced via aria-labelledby above -->
-    <h2 id="dialog-title">Awesome. I have it.</h2>
-    <!-- Changed from anchor to button for better semantics. Wrapped the 'X' in aria-hidden so that it was not read out loud. Added some visually hidden but screen-reader available instructions -->
-    <button class="button tiny close-reveal-modal"><span aria-hidden="true">&#215;</span><span class="visible-for-xxlarge-up">Close Dialog</span></button>
-    <p class="lead">Your couch.  It is mine.</p>
-    <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-    <!-- Just an element for focus -->
-    <label>Input Label (for focus)
-      <input type="text" />
-    </label>
-    <!-- Another element for focus -->
-    <button class="button secondary">Secondary Button</button>
+  <!-- Added tabindex="0" for focus -->
+  <div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" tabindex="0">
+    <h2 id="modalTitle">Awesome. I have it.</h2>
+    <!-- Moved close button to match visual placement. Changed from anchor to button for better semantics. Wrapped the 'X' in aria-hidden so that it was not read out loud.  -->
+    <button class="button tiny close-reveal-modal" aria-label="Close Dialog"><span aria-hidden="true">&#215;</span></button>
+    <diiv role="document">
+      <p class="lead">Your couch.  It is mine.</p>
+      <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+      <!-- Just an element for focus -->
+      <label>Input Label (for focus)
+        <input type="text" />
+      </label>
+      <!-- Another element for focus -->
+      <button class="button secondary">Secondary Button</button>
+    </diiv>
   </div>
+
+
+  <hr />
+
+  <h2>Source</h2>
+  <ol>
+    <li>jQuery v2.1.4</li>
+    <li>Modernizr v2.8.3</li>
+    <li>Foundation for Sites v5.5.3</li>
+    <li><i><a href="http://foundation.zurb.com/docs/css.html">http://foundation.zurb.com/docs/css.html</a></i></li>
+    <li><i><a href="http://foundation.zurb.com/docs/components/reveal.html">http://foundation.zurb.com/docs/components/reveal.html</a></i></li>
+  </ol>
+
+  <h2>Notes</h2>
+  <ol>
+    <li>Tabs restricted to panel</li>
+    <li>Focus to first focusable element</li>
+    <li>Focus returns to the trigger</li>
+    <li>Close button now semantic, properly announced, and DOM order matches visual order</li>
+    <li>Dialog content wrapped with role="dialog"</li>
+    <li>ARIA complete</li>
+    <li>Body content wrapped and hidden</li>
+  </ol>
 
   <script src="/src/foundation/js/vendor/jquery.js"></script>
   <script src="/src/foundation/js/foundation.min.js"></script>

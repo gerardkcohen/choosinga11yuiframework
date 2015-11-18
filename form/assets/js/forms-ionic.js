@@ -33,7 +33,7 @@ angular.module('ionicApp', ['ionic'])
                     controller: "AttendeesCtrl"
                 }
             }
-        })
+        });
 
     $urlRouterProvider.otherwise("/event/home");
 })
