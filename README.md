@@ -14,6 +14,7 @@ Thanks to [Paul Schantz](https://twitter.com/paulschantz) for providing detailed
 
 ## History
 07/29/2015 - Add examples from Ionic and Material Design Lite, from ForwardJS
+11/18/2015 - Update examples for Accessing Higher Ground 2015
 
 
 ## Credits
