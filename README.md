@@ -13,8 +13,8 @@ Slideshare available at:
 Thanks to [Paul Schantz](https://twitter.com/paulschantz) for providing detailed notes from CSUN 2015:  [http://paulschantz.com/2015/03/06/choosing-an-accessible-ui-framework/](http://paulschantz.com/2015/03/06/choosing-an-accessible-ui-framework/)
 
 ## History
-07/29/2015 - Add examples from Ionic and Material Design Lite, from ForwardJS
-11/18/2015 - Update examples for Accessing Higher Ground 2015
+- 07/29/2015 - Add examples from Ionic and Material Design Lite, from ForwardJS
+- 11/18/2015 - Update examples for Accessing Higher Ground 2015
 
 
 ## Credits
